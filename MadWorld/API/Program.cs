@@ -13,7 +13,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: "MadWorld",
         builder =>
         {
-            builder.WithOrigins("https://localhost:7022", "http://eqpwsr2gxmowm7vumziy26mveubc4ecs4gh7ud6ia2mghyroqzh576yd.onion")
+            builder.WithOrigins("https://localhost:7022")
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         });
