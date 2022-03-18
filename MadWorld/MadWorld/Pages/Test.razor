@@ -1,0 +1,18 @@
+﻿@page "/test"
+@using MadWorld.Models;
+@inject IHttpClientFactory httpFactory
+
+<PageTitle>Test page</PageTitle>
+<p>@Message</p>
+
+@code {
+    private string Message = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var http = httpFactory.CreateClient("MadWorldAPI");
+        var testmodel = await http.GetFromJsonAsync<TestModel>("test");
+        Message = testmodel?.Message;
+    }
+}
+
